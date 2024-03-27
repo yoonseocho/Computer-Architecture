@@ -1,0 +1,15 @@
+M R1 0xF ; 입력값 두개
+M R2 0x60
+C R1 R2 ; while R1 != R2
+BEQ 0xE
+M R3 0x1 ; if R1 < R2
+C R0 R3
+BEQ 0xB
+- R2 R1 ; R2 = R2 - R1
+M R2 R0
+J 0x3 ; 다시 while로 (3~4)
+- R1 R2 ; R1 = R1 - R2
+M R1 R0
+J 0x3 ; 다시 while로 (3~4)
+M R4 R1 ; 결과값(최대공약수) R4에 저장
+HLT
